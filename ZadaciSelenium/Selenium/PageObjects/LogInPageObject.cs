@@ -1,5 +1,4 @@
 ﻿using OpenQA.Selenium;
-using SeleniumExtras.PageObjects;
 using Selenium;
 using System;
 using Selenium.Web_Driver;
@@ -10,98 +9,42 @@ using NUnit.Framework;
 
 namespace Selenium.PageObjects
 {
-    public class LogInPageObject
+    static class LogInPageObject
     {
-        private IWebDriver driver;
+        private static IWebDriver driver = WebDriver.driver;
+
+        private static IWebElement txtEmailAdress = WebDriver.driver.FindElement(By.Name("email"));
 
 
-        public LogInPageObject(IWebDriver _driver) => driver = _driver;
+        public static IWebElement  txtPassword = WebDriver.driver.FindElement(By.Name("passwd"));
 
 
-        public IWebElement txtEmailAdress => driver.FindElement(By.Name("email"));
+        public static IWebElement btnSignIn = WebDriver.driver.FindElement(By.Name("SubmitLogin"));
 
 
-        public IWebElement txtPassword => driver.FindElement(By.Name("passwd"));
-
-
-        public IWebElement btnSignIn => driver.FindElement(By.Name("SubmitLogin"));
-
-
-        public void ElementPresent(IWebElement element)
+        public static void LogIn(string emailadress, string password)
         {
             try
             {
-                //Print message if assert pass
-                Assert.IsTrue(element.Displayed);
-                Console.WriteLine("Element is displayed!");
-            }
-            catch (Exception e)
-            {
-                //Printing message if assert is fails
-                Console.WriteLine("Element does not exist: {0}", e);
-            }
-        }
-
-        public void ElementEmpty(IWebElement element)
-        {
-
-            string text = element.GetAttribute("value");
-
-            try
-            {
-                //Print message if assert pass
-                Assert.IsEmpty(text);
-                Console.WriteLine("Element is empty!");
-            }
-            catch (Exception e)
-            {
-                //Printing message if assert is fails
-                Console.WriteLine("Element is not empty: {0}", e);
-            }
-        }
-
-        public void ElementEnabled(IWebElement element)
-        {
-            try
-            {
-                //Print message if assert pass
-                Assert.IsTrue(element.Enabled);
-                Console.WriteLine("Element is enabled!");
-            }
-            catch (Exception e)
-            {
-                //Printing message if assert is fails
-                Console.WriteLine("Element is not enabled: " + e);
-            }
-
-        }
-
-
-
-
-        public void LogIn(string emailadress, string password)
-        {
-            try
-            {
-                ElementPresent(txtEmailAdress);
-                ElementEnabled(txtEmailAdress);
-                ElementEmpty(txtEmailAdress);
+                SeleniumSetMethod.ElementPresent(txtEmailAdress);
+                SeleniumSetMethod.ElementEnabled(txtEmailAdress);
+                SeleniumSetMethod.ElementEmpty(txtEmailAdress);
                 txtEmailAdress.Clear();
                 SeleniumSetMethod.EnterText(txtEmailAdress, emailadress);
 
-                ElementPresent(txtPassword);
-                ElementEnabled(txtPassword);
-                ElementEmpty(txtPassword);
+                SeleniumSetMethod.ElementPresent(txtPassword);
+                SeleniumSetMethod.ElementEnabled(txtPassword);
+                SeleniumSetMethod.ElementEmpty(txtPassword);
                 txtPassword.Clear();
                 SeleniumSetMethod.EnterText(txtPassword, password);
 
-                ElementPresent(btnSignIn);
-                ElementEnabled(btnSignIn);
+                SeleniumSetMethod.ElementPresent(btnSignIn);
+                SeleniumSetMethod.ElementEnabled(btnSignIn);
                 SeleniumSetMethod.Submits(btnSignIn);
 
                 string urlSearch = driver.Url;
                 SeleniumSetMethod.WaitForPageToLoad(driver, 35);
-                SeleniumGetMethods.PageLoaded(urlSearch, "My account - My Store");
+                SeleniumGetMethods.PageLoaded(urlSearch, "account");
                 Console.WriteLine("Login successful!");
             }
             catch (Exception e)

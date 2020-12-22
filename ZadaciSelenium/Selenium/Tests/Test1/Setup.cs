@@ -10,11 +10,10 @@ namespace Selenium.Tests.Test1
     public class Setup
     {
         [SetUp]
-
         public void Initialize()
         {
 
-            WebDriver.driver = new ChromeDriver();
+            WebDriver.driver = new ChromeDriver(@"C:\Users\mihal\OneDrive\Desktop\New folder (2)");
 
             WebDriver.driver.Navigate().GoToUrl("http://automationpractice.com/index.php?controller=authentication&back=my-account");
             WebDriver.driver.Manage().Window.Maximize();

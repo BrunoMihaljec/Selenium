@@ -8,7 +8,6 @@ C:\Users\mihal\source\repos\ZadaciSelenium\Selenium\bin\Debug\Selenium.exe
 C:\Users\mihal\source\repos\ZadaciSelenium\Selenium\bin\Debug\Selenium.pdb
 C:\Users\mihal\source\repos\ZadaciSelenium\Selenium\bin\Debug\Microsoft.VisualStudio.CodeCoverage.Shim.dll
 C:\Users\mihal\source\repos\ZadaciSelenium\Selenium\bin\Debug\nunit.framework.dll
-C:\Users\mihal\source\repos\ZadaciSelenium\Selenium\bin\Debug\SeleniumExtras.PageObjects.dll
 C:\Users\mihal\source\repos\ZadaciSelenium\Selenium\bin\Debug\WebDriver.dll
 C:\Users\mihal\source\repos\ZadaciSelenium\Selenium\bin\Debug\WebDriver.Support.dll
 C:\Users\mihal\source\repos\ZadaciSelenium\Selenium\bin\Debug\nunit.framework.pdb
