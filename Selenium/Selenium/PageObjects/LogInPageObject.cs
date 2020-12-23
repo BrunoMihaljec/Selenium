@@ -11,15 +11,14 @@ namespace Selenium.PageObjects
 {
     static class LogInPageObject
     {
-        private static IWebDriver driver = WebDriver.driver;
 
-        private static IWebElement txtEmailAdress = WebDriver.driver.FindElement(By.Name("email"));
-
-
-        public static IWebElement  txtPassword = WebDriver.driver.FindElement(By.Name("passwd"));
+        private static IWebElement txtEmailAdress => WebDriver.driver.FindElement(By.Name("email"));
 
 
-        public static IWebElement btnSignIn = WebDriver.driver.FindElement(By.Name("SubmitLogin"));
+        public static IWebElement  txtPassword => WebDriver.driver.FindElement(By.Name("passwd"));
+
+
+        public static IWebElement btnSignIn => WebDriver.driver.FindElement(By.Name("SubmitLogin"));
 
 
         public static void LogIn(string emailadress, string password)
@@ -42,8 +41,8 @@ namespace Selenium.PageObjects
                 SeleniumSetMethod.ElementEnabled(btnSignIn);
                 SeleniumSetMethod.Submits(btnSignIn);
 
-                string urlSearch = driver.Url;
-                SeleniumSetMethod.WaitForPageToLoad(driver, 35);
+                string urlSearch = WebDriver.driver.Url;
+                SeleniumSetMethod.WaitForPageToLoad(WebDriver.driver, 35);
                 SeleniumGetMethods.PageLoaded(urlSearch, "account");
                 Console.WriteLine("Login successful!");
             }

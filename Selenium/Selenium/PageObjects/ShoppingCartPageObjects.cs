@@ -12,12 +12,10 @@ namespace Selenium.PageObjects
     static class ShoppingCartPageObjects
     {
 
-        private static IWebDriver driver = WebDriver.driver;
-
-        public static IWebElement txtEnterQuantity = WebDriver.driver.FindElement(By.Name("quantity_1_1_0_419123"));
+        public static IWebElement txtEnterQuantity => WebDriver.driver.FindElement(By.Name("quantity_1_1_0_419123"));
 
 
-        public static IWebElement btnProcedToCheckout = WebDriver.driver.FindElement(By.LinkText("Proceed to checkout"));
+        public static IWebElement btnProcedToCheckout => WebDriver.driver.FindElement(By.LinkText("Proceed to checkout"));
 
 
 
@@ -35,8 +33,8 @@ namespace Selenium.PageObjects
                 SeleniumSetMethod.ElementEnabled(btnProcedToCheckout);
                 SeleniumSetMethod.Clicks(btnProcedToCheckout);
 
-                string urlAdress = driver.Url;
-                SeleniumSetMethod.WaitForPageToLoad(driver, 35);
+                string urlAdress = WebDriver.driver.Url;
+                SeleniumSetMethod.WaitForPageToLoad(WebDriver.driver, 35);
                 SeleniumGetMethods.PageLoaded(urlAdress, "order");
                 Console.WriteLine("Product quantity increased successfully!");
             }

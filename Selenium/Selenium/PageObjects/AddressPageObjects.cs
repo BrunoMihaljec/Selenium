@@ -11,13 +11,11 @@ namespace Selenium.PageObjects
 {
      static class AddressPageObjects
      {
-        private static IWebDriver driver = WebDriver.driver;
+
+        public static IWebElement txtComment =>WebDriver.driver.FindElement(By.Name("message"));
 
 
-        public static IWebElement txtComment = WebDriver.driver.FindElement(By.Name("message"));
-
-
-        public static IWebElement btnProcedToAddress = WebDriver.driver.FindElement(By.Name("processAddress"));
+        public static IWebElement btnProcedToAddress => WebDriver.driver.FindElement(By.Name("processAddress"));
 
 
 
@@ -35,8 +33,8 @@ namespace Selenium.PageObjects
                 SeleniumSetMethod.ElementEnabled(btnProcedToAddress);
                 SeleniumSetMethod.Clicks(btnProcedToAddress);
 
-                string urlAdress = driver.Url;
-                SeleniumSetMethod.WaitForPageToLoad(driver, 50);
+                string urlAdress = WebDriver.driver.Url;
+                SeleniumSetMethod.WaitForPageToLoad(WebDriver.driver, 50);
                 SeleniumGetMethods.PageLoaded(urlAdress, "order");
                 Console.WriteLine("Comment added successfully!");
             }

@@ -13,6 +13,10 @@ namespace Selenium.Tests.Test1
         [Test]
         public void ExecuteTest()
         {
+            WebDriver.driver.Navigate().GoToUrl("http://automationpractice.com/index.php?controller=authentication&back=my-account");
+            WebDriver.driver.Manage().Window.Maximize();
+            Console.WriteLine("Opened URL");
+
             LogInPageObject.LogIn("mihaljecbruno@gmail.com", "LigaLegendi");
             Console.WriteLine("Logged in the page!");
 
@@ -37,13 +41,7 @@ namespace Selenium.Tests.Test1
 
         }
 
-        [TearDown]
-        public void CleanUp()
-        {
-            WebDriver.driver.Close();
-            Console.WriteLine("The Browser Closed");
-
-        }
+       
 
     }
 }

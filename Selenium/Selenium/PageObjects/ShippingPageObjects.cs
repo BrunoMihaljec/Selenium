@@ -12,12 +12,11 @@ namespace Selenium.PageObjects
 {
     static class ShippingPageObjects
     {
-        private static IWebDriver driver = WebDriver.driver;
 
-        public static IWebElement chcbxIAgree = WebDriver.driver.FindElement(By.XPath("/html/body/div/div[2]/div/div[3]/div/div/form/div/p[2]/div/span"));
+        public static IWebElement chcbxIAgree => WebDriver.driver.FindElement(By.XPath("/html/body/div/div[2]/div/div[3]/div/div/form/div/p[2]/div/span"));
 
 
-        public static IWebElement btnProccedToPayment = WebDriver.driver.FindElement(By.Name("processCarrier"));
+        public static IWebElement btnProccedToPayment => WebDriver.driver.FindElement(By.Name("processCarrier"));
 
         
 
@@ -34,8 +33,8 @@ namespace Selenium.PageObjects
                 SeleniumSetMethod.ElementEnabled(btnProccedToPayment);
                 SeleniumSetMethod.Clicks(btnProccedToPayment);
 
-                string urlAdress = driver.Url;
-                SeleniumSetMethod.WaitForPageToLoad(driver, 35);
+                string urlAdress = WebDriver.driver.Url;
+                SeleniumSetMethod.WaitForPageToLoad(WebDriver.driver, 35);
                 SeleniumGetMethods.PageLoaded(urlAdress, "shipping");
                 Console.WriteLine("Procceded to payment successfully!");
             }

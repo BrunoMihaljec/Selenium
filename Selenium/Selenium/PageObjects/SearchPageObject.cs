@@ -11,12 +11,11 @@ namespace Selenium.PageObjects
 {
     static class SearchPageObject
     {
-        private static IWebDriver driver = WebDriver.driver;
 
-        public static IWebElement txtSearch = WebDriver.driver.FindElement(By.Name("search_query"));
+        public static IWebElement txtSearch => WebDriver.driver.FindElement(By.Name("search_query"));
 
 
-        public static IWebElement btnSearch = WebDriver.driver.FindElement(By.Name("submit_search"));
+        public static IWebElement btnSearch => WebDriver.driver.FindElement(By.Name("submit_search"));
 
 
 
@@ -33,8 +32,8 @@ namespace Selenium.PageObjects
                 SeleniumSetMethod.ElementEnabled(btnSearch);
                 SeleniumSetMethod.Submits(btnSearch);
 
-                string urlProducts = driver.Url;
-                SeleniumSetMethod.WaitForPageToLoad(driver, 50);
+                string urlProducts = WebDriver.driver.Url;
+                SeleniumSetMethod.WaitForPageToLoad(WebDriver.driver, 50);
                 SeleniumGetMethods.PageLoaded(urlProducts, "shirt");
                 Console.WriteLine("Search successful!");
             }

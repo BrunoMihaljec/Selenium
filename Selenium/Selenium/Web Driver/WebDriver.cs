@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Selenium.Web_Driver
 {
-           public class WebDriver
+           public static class WebDriver
            {
                  public static IWebDriver driver { get; set; }
            }

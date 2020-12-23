@@ -12,9 +12,8 @@ namespace Selenium.PageObjects
 {
     static class ShoppingPageObjects
     {
-        private static IWebDriver driver = WebDriver.driver;
 
-        public static IWebElement btnGoToProduct = WebDriver.driver.FindElement(By.XPath("/html/body/div/div[2]/div/div[3]/div[1]/div[1]/div/ul/li[2]/div/h5/a"));
+        public static IWebElement btnGoToProduct => WebDriver.driver.FindElement(By.XPath("/html/body/div/div[2]/div/div[3]/div[1]/div[1]/div/ul/li[2]/div/h5/a"));
 
    
 
@@ -27,8 +26,8 @@ namespace Selenium.PageObjects
                 SeleniumSetMethod.ElementEnabled(btnGoToProduct);
                 SeleniumSetMethod.Clicks(btnGoToProduct);
 
-                string urlSelectedProduct = driver.Url;
-                SeleniumSetMethod.WaitForPageToLoad(driver, 50);
+                string urlSelectedProduct = WebDriver.driver.Url;
+                SeleniumSetMethod.WaitForPageToLoad(WebDriver.driver, 50);
                 SeleniumGetMethods.PageLoaded(urlSelectedProduct, "product");
                 Console.WriteLine("Viewing product successful!");
             }
